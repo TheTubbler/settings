@@ -1,0 +1,6 @@
+[user]
+	name = Tubbles
+	email = jae91m@gmail.com
+[core]
+	editor = nano
+	excludesfile = /home/jae91/.gitignore_global

@@ -1,0 +1,7 @@
+alias ls='ls -AFq --color --group-directories-first'
+alias ll='ls -l --time-style=+%y%m%d-%H%M%S'
+alias reload='[[ -r ~/.bashrc ]] && . ~/.bashrc'
+alias path='env | grep -E "^PATH=" | tr ":" "\n" | sed "s/PATH=//g"'
+alias dev='cd /b/dev'
+
+export IDF_PATH=/b/dev/esp32/esp-idf-v1.0
