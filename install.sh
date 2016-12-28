@@ -3,31 +3,21 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo -e "SCRIPTDIR is ${SCRIPTDIR}"
 echo -e "HOME is ${HOME}"
+echo -e ""
 
-TARGET=".gitconfig"
-read -p "Install ${TARGET}? [y/N] " YN
-case $YN in
-	[Yy]* ) cp "${SCRIPTDIR}/${TARGET}" "${HOME}" ;;
+function inst() {
+    read -p "Install $1? [y/N] " YN
+    case "$YN" in
+	[Yy]* )
+	    cp "${SCRIPTDIR}/$1" "${HOME}"
+	    echo -e "Installing..."
+	    ;;
 	* ) ;;
-esac
+    esac
+}
 
-TARGET=".gitignore_global"
-read -p "Install ${TARGET}? [y/N] " YN
-case $YN in
-	[Yy]* ) cp "${SCRIPTDIR}/${TARGET}" "${HOME}" ;;
-	* ) ;;
-esac
-
-TARGET=".settings_bash"
-read -p "Install ${TARGET}? [y/N] " YN
-case $YN in
-	[Yy]* ) cp "${SCRIPTDIR}/${TARGET}" "${HOME}" ;;
-	* ) ;;
-esac
-
-TARGET=".tmux.conf"
-read -p "Install ${TARGET}? [y/N] " YN
-case $YN in
-	[Yy]* ) cp "${SCRIPTDIR}/${TARGET}" "${HOME}" ;;
-	* ) ;;
-esac
+inst ".gitconfig"
+inst ".gitignore_global"
+inst ".settings_bash"
+inst ".tmux.conf"
+inst ".nanorc"
